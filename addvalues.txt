@@ -1,0 +1,77 @@
+-- Drop the existing procedures if they exist
+DROP PROCEDURE IF EXISTS GenerateVoitures;
+DROP PROCEDURE IF EXISTS GenerateLocations;
+DROP PROCEDURE IF EXISTS GenerateClients;
+
+DELIMITER //
+
+-- Procedure to generate Voitures
+CREATE PROCEDURE GenerateVoitures()
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    WHILE i < 10 DO
+        INSERT INTO voiture (serie, model, price, etat, disponibility, date_Mise_En)
+        VALUES (
+            LPAD(FLOOR(RAND() * 100000), 5, '0'), 
+            LEFT(UUID(), 8), 
+            FLOOR(RAND() * 4000) + 1000, 
+            ELT(1 + FLOOR(RAND() * 3), 'GOOD', 'MEDIUM', 'BAD'), 
+            TRUE, 
+            NOW()
+        );
+        SET i = i + 1;
+    END WHILE;
+END //
+
+-- Procedure to generate Locations with random client_id and voiture_id
+CREATE PROCEDURE GenerateLocations()
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE max_client_id INT;
+    DECLARE max_voiture_id INT;
+    DECLARE client_rand_id INT;
+    DECLARE voiture_rand_id INT;
+    
+    SELECT MAX(id) INTO max_client_id FROM client;
+    SELECT MAX(id) INTO max_voiture_id FROM voiture;
+
+    WHILE i < 10 DO
+        -- Generate random client_id within the valid range of IDs in the client table
+        SET client_rand_id = 1 + FLOOR(RAND() * max_client_id);
+        
+        -- Generate random voiture_id within the valid range of IDs in the voiture table
+        SET voiture_rand_id = 1 + FLOOR(RAND() * max_voiture_id);
+
+        INSERT INTO location (client_id, voiture_id, date_debut, Date_retour)
+        SELECT 
+            client_rand_id,
+            voiture_rand_id,
+            NOW() - INTERVAL FLOOR(RAND() * 20) DAY, 
+            NOW() + INTERVAL FLOOR(RAND() * 20) DAY
+        FROM dual
+        WHERE EXISTS (SELECT 1 FROM client WHERE id = client_rand_id)
+        AND EXISTS (SELECT 1 FROM voiture WHERE id = voiture_rand_id);
+        
+        SET i = i + 1;
+    END WHILE;
+END //
+
+-- Procedure to generate Clients
+CREATE PROCEDURE GenerateClients()
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    WHILE i < 10 DO
+        INSERT INTO client (nomprenom, numero, sex)
+        VALUES (
+            LEFT(UUID(), 10), 
+            CONCAT('+', FLOOR(RAND() * 10000000000)), 
+            IF(RAND() < 0.5, 'MALE', 'FEMALE')
+        );
+        SET i = i + 1;
+    END WHILE;
+END //
+
+DELIMITER ;
+CALL GenerateClients();
+CALL GenerateVoitures();
+CALL GenerateLocations();

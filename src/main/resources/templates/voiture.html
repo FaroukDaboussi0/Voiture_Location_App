@@ -1,0 +1,8 @@
+<!-- Display a list of Voitures -->
+<ul th:each="voiture : ${voitures}">
+    <li><a th:href="@{/voiture/{id}(id=${voiture.id})}" th:text="${voiture.Modele}"></a></li>
+</ul>
+<a th:href="@{/add-voiture}">Add Voiture</a>
+<div>
+    <a href="/">Home</a>
+</div>

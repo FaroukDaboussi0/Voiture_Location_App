@@ -1,0 +1,10 @@
+<form th:action="@{/update-client}" th:object="${client}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <!-- Input fields for updating client properties -->
+    <input type="text" th:field="*{nom}" />
+    <!-- Add more fields as needed -->
+    <button type="submit">Update client</button>
+    <div>
+        <a href="/">Home</a>
+    </div>
+</form>

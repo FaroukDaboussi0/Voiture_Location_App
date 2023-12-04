@@ -1,0 +1,8 @@
+<!-- Display Voiture details -->
+<h1 th:text="${voiture.Modele}"></h1>
+<!-- Display other Voiture properties -->
+<a th:href="@{/edit-voiture/{id}(id=${voiture.id})}">Edit</a>
+<a th:href="@{/delete-voiture/{id}(id=${voiture.id})}">Delete</a>
+<div>
+<a href="/">Home</a>
+</div>

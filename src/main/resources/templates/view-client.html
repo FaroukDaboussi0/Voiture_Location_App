@@ -1,0 +1,8 @@
+<!-- Display client details -->
+<h1 th:text="${client.Modele}"></h1>
+<!-- Display other client properties -->
+<a th:href="@{/edit-client/{id}(id=${client.id})}">Edit</a>
+<a th:href="@{/delete-client/{id}(id=${client.id})}">Delete</a>
+<div>
+    <a href="/">Home</a>
+</div>

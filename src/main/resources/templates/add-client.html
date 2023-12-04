@@ -1,0 +1,9 @@
+<form th:action="@{/add-client}" th:object="${client}" method="post">
+    <!-- Input fields for client properties -->
+    <input type="text" th:field="*{nom}" />
+    <!-- Add more fields as needed -->
+    <button type="submit">Add client</button>
+    <div>
+        <a href="/">Home</a>
+    </div>
+</form>

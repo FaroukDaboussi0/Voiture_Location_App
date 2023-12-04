@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Spring Boot Application</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Adjust according to your header size */
+        }
+        header {
+            background-color: #343a40; /* Dark background color */
+            color: #fff; /* Text color */
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #343a40;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to My Spring Boot Application</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="/voitures">View Voitures</a></li>
+        <li><a href="/add-voiture">Add Voiture</a></li>
+        <li><a href="/clients">View Clients</a></li>
+        <li><a href="/add-client">Add Client</a></li>
+        <!-- Add more navigation links as needed -->
+    </ul>
+</nav>
+<p>Number of Voitures: <span th:text="${voitureCount}"></span></p>
+<p>Number of Clients: <span th:text="${clientCount}"></span></p>
+<main>
+    <p>pour TP Spring boot</p>
+</main>
+<footer>
+    <p>&copy; 2023 tekup</p>
+</footer>
+</body>
+</html>

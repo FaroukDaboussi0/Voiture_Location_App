@@ -1,0 +1,8 @@
+<!-- Display a list of clients -->
+<ul th:each="client : ${clients}">
+    <li><a th:href="@{/client/{id}(id=${client.id})}" th:text="${client.nom}"></a></li>
+</ul>
+<a th:href="@{/add-client}">Add client</a>
+<div>
+    <a href="/">Home</a>
+</div>

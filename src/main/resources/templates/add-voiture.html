@@ -1,0 +1,9 @@
+<form th:action="@{/add-voiture}" th:object="${voiture}" method="post">
+    <!-- Input fields for Voiture properties -->
+    <input type="text" th:field="*{Modele}" />
+    <!-- Add more fields as needed -->
+    <button type="submit">Add Voiture</button>
+    <div>
+        <a href="/">Home</a>
+    </div>
+</form>
