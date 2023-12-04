@@ -8,7 +8,7 @@ import java.util.List;
 public interface Appfasade {
 
     //Client methods
-       //-Edit client
+       //-Edit methods
        void saveclient(Client client);
        void deleteclient(Long id);
 
@@ -24,15 +24,13 @@ public interface Appfasade {
        long countClients();
        Client newClient();
 
-    //Client methods
+    //Voiture methods
        //-Edit methods
       void deleteVoiture(Long id);
       void saveVoiture(Voiture voiture);
        //-Get methods
        List<Voiture> getAllVoitures();
        Voiture getVoitureById(Long id);
-
-
        List<Voiture> getTop5VoituresByRevenue();
        List<Voiture> getTopVoituresByRevenue();
        List<Voiture> getAvailableVoitures();
