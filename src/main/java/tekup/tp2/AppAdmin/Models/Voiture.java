@@ -12,7 +12,7 @@ import java.util.List;
 public class Voiture {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String serie;
     private String model;
@@ -20,7 +20,7 @@ public class Voiture {
     private Etat etat;
     private boolean disponibility = true; // Default value: true
     private LocalDateTime dateMiseEn = LocalDateTime.now(); // Default value: LocalDateTime.now()
-    private double TotalRevenue ;
+    private double TotalRevenue = 0 ;
 
     public double getTotalRevenue() {
         return TotalRevenue;
@@ -33,7 +33,14 @@ public class Voiture {
     public Voiture() {
     }
 
-    // Constructor
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+// Constructor
 
 
     // Getters and Setters
@@ -91,11 +98,7 @@ public class Voiture {
     public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
-    public enum Etat {
-        GOOD,
-        MEDIUM,
-        BAD
-    }
+
 
     @OneToMany(mappedBy = "voiture")
     private List<Location> locations;

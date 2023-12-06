@@ -20,6 +20,7 @@ public class VoitureController {
         model.addAttribute("voitures5", appfasade.getTop5VoituresByRevenue());
         model.addAttribute("voitureCount", appfasade.countVoitures());
         model.addAttribute("voitureAV", appfasade.getAvailableVoitures());
+        System.out.println("must be voiture.html"); // Printing a success message
         return "voiture";
     }
 
@@ -34,20 +35,28 @@ public class VoitureController {
     @GetMapping("/add-voiture")
     public String showAddVoitureForm(Model model) {
         model.addAttribute("voiture", appfasade.newVoitue());
-        return "add-voiture";
+        return "addV";
     }
 
     @PostMapping("/add-voiture")
     public String saveVoiture(@ModelAttribute Voiture voiture) {
-        appfasade.saveVoiture(voiture);
-        return "redirect:/voiturePN";
+        if (appfasade.isVoitureUnique(voiture)) {
+            // If unique, save the Voiture
+            appfasade.saveVoiture(voiture);
+            System.out.println("Voiture saved successfully: " + voiture.getId());
+            return "voiture"; // Redirect or return to a specific view after successful save
+        } else {
+            // If not unique, do nothing or add a message to indicate the duplicate entry
+            return ""; // Returning an empty string or null here
+        }
     }
+
 
     @GetMapping("/edit-voiture/{id}")
     public String showEditVoitureForm(@PathVariable Long id, Model model) {
         Voiture voiture = appfasade.getVoitureById(id);
         model.addAttribute("voiture", voiture);
-        return "edit-voiture";
+        return "addV";
     }
 
     @PostMapping("/update-voiture")

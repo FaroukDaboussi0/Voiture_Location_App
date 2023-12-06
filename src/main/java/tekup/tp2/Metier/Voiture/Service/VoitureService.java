@@ -14,4 +14,6 @@ public interface VoitureService {
     List<Voiture> getTopVoituresByRevenue();
     List<Voiture> getAvailableVoitures();
     Voiture newVoitue();
+
+    boolean isVoitureUnique(Voiture voiture);
 }

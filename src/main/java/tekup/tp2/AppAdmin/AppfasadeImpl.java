@@ -108,4 +108,9 @@ public class AppfasadeImpl implements Appfasade {
     public long countVoitures() {
         return voitureService.countVoitures();
     }
+
+    @Override
+    public boolean isVoitureUnique(Voiture voiture) {
+        return voitureService.isVoitureUnique(voiture);
+    }
 }

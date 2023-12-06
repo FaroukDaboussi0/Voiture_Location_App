@@ -240,16 +240,15 @@
 .u-section-1 .u-icon-6 {
   width: 36px;
   height: 36px;
-  margin: 112px 46px 0 auto;
+  margin: 5px;
   padding: 0;
+
 }
 
-.u-section-1 .u-icon-7 {
-  width: 36px;
-  height: 36px;
-  margin: -36px 96px 0 auto;
-  padding: 7px;
-}
+ .u-icon-7 {
+
+ }
+
 
 .u-section-1 .u-search-1 {
   height: auto;

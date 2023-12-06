@@ -1,0 +1,9 @@
+use SalesDW
+insert into FactOrder (OrderNumber,QuantityOrdered,Sales,IDOrderDateFK,IDDaysSinceLastOrderFk,IDProductFk,IDGeoFK,CustomerName,Phone,AddressLine1,Status,ContactLastName,ContactFirstName,DealSize )
+SELECT X.ORDERNUMBER, X.QUANTITYORDERED, X.SALES, Y.IDGeo
+FROM [Auto Sales data] as X
+JOIN DimGeos as G ON X.CITY = G.CITY AND X.POSTALCODE = Y.POSTALCODE AND X.COUNTRY = Y.COUNTRY;
+JOIN Dimproduit as P ON
+JOIN DimDates D
+
+

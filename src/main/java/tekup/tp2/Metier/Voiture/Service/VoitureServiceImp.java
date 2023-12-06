@@ -111,4 +111,20 @@ public class VoitureServiceImp implements VoitureService {
         return new Voiture();
     }
 
+    @Override
+    public boolean isVoitureUnique(Voiture voiture) {
+        List<Voiture> existingVoitures = getAllVoitures();
+
+        for (Voiture existingVoiture : existingVoitures) {
+            if (existingVoiture.getSerie().equals(voiture.getSerie()) &&
+                    existingVoiture.getModel().equals(voiture.getModel())) {
+                return false; // Not unique - a similar Voiture already exists
+            }
+        }
+
+        return true; // Unique - no matching Voiture found
+    }
+
+
 }
+
