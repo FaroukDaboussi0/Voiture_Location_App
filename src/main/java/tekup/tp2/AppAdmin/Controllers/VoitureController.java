@@ -20,7 +20,7 @@ public class VoitureController {
         model.addAttribute("voitures5", appfasade.getTop5VoituresByRevenue());
         model.addAttribute("voitureCount", appfasade.countVoitures());
         model.addAttribute("voitureAV", appfasade.getAvailableVoitures());
-        System.out.println("must be voiture.html"); // Printing a success message
+        System.out.println("must be on voiture.html"); // Printing a success message
         return "voiture";
     }
 
@@ -55,14 +55,27 @@ public class VoitureController {
     @GetMapping("/edit-voiture/{id}")
     public String showEditVoitureForm(@PathVariable Long id, Model model) {
         Voiture voiture = appfasade.getVoitureById(id);
+
         model.addAttribute("voiture", voiture);
-        return "addV";
+        return "modifV";
     }
 
     @PostMapping("/update-voiture")
-    public String updateVoiture(@ModelAttribute Voiture voiture) {
-        appfasade.saveVoiture(voiture);
-        return "redirect:/voiturePN";
+    public String updateVoiture(@ModelAttribute Voiture updatedVoiture) {
+        // Fetch the existing voiture from the database
+        Voiture existingVoiture = appfasade.getVoitureById(updatedVoiture.getId());
+
+        // Update the existing voiture with the new values
+        existingVoiture.setSerie(updatedVoiture.getSerie());
+        existingVoiture.setModel(updatedVoiture.getModel());
+        existingVoiture.setPrice(updatedVoiture.getPrice());
+        existingVoiture.setEtat(updatedVoiture.getEtat());
+        // Update other fields as needed
+
+        // Save the updated voiture
+        appfasade.saveVoiture(existingVoiture);
+
+        return "redirect:/voitures";
     }
 
     @GetMapping("/delete-voiture/{id}")

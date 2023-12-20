@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="fr"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="VoiTurX, ​Get in Touch">
+    <meta name="description" content="">
+    <title>ModifV</title>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+<link rel="stylesheet" href="/addV.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const submitButton = document.getElementById('submitButton');
+      const voitureForm = document.getElementById('voitureForm');
+
+      if (submitButton && voitureForm) {
+        voitureForm.addEventListener('submit', function() {
+          submitButton.setAttribute('disabled', 'true');
+        });
+      } else {
+        console.error('Submit button or form not found.');
+      }
+    });
+  </script>
+
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="addV">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="fr">
+    <section class="u-align-center u-clearfix u-palette-4-base u-section-1" id="sec-14a6">
+      <img class="u-expanded-width u-image u-image-1" src="images/-min.jpg">
+      <div class="u-expanded-width u-gradient u-opacity u-opacity-85 u-radius u-shape u-shape-round u-shape-1"></div>
+      <div class="u-container-style u-group u-shape-rectangle u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <div class="u-clearfix u-group-elements u-group-elements-1">
+            <div class="custom-expanded u-shape u-shape-svg u-text-palette-1-base u-shape-2">
+              <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e36a"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-e36a" style="/enable-background:new 0 0 160 160;"><path d="M151.7,132.5c-3.4,6-7.9,11.7-13.3,16.5c-29.2,26.1-54.1-2.3-88.2-3S0,109.5,0,91.6s14.8-31.3,25.3-45.3S33.4,11,51.8,3
+	c15.3-6.6,33.6-0.4,51.6,0.7c11.2,0.7,28.8-3.8,38.2,0.4s11.8,15.4,9.2,22.8c-1.9,5.4-5.5,11.6-12.8,16.5
+	c-9.3,10.1-4.7,22.9,3.7,33.4c7.8,9.7,17.7,11.7,18.3,23.5C160.4,110.8,157.6,122.2,151.7,132.5L151.7,132.5z"></path></svg>
+            </div>
+          </div><span class="u-file-icon u-icon u-icon-1" data-href="/voitures"><img src="/images/7524132.png" alt=""></span>
+        </div>
+      </div>
+      <div class="u-shape u-shape-svg u-text-palette-1-base u-shape-3">
+        <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 80" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-632c"></use></svg>
+        <svg class="u-svg-content" viewBox="0 0 160 80" x="0px" y="0px" id="svg-632c" style="/enable-background:new 0 0 160 80;"><path d="M160,0H0c0,44.2,35.8,80,80,80S160,44.2,160,0z"></path></svg>
+      </div>
+      <p class="u-text u-text-default u-text-grey-80 u-text-1">Edit CAR</p>
+      <div class="u-palette-1-base u-shape u-shape-rectangle u-shape-4"></div>
+      <div class="custom-expanded u-align-left u-form u-form-1">
+        <form th:action="@{/update-voiture}" th:object="${voiture}" action="/update-voiture" method="post" id ="voitureForm" class="u-clearfix u-form-horizontal u-form-spacing-28 u-inner-form" style="padding: 0px;" name="form">
+          <input th:field="*{id}" type="hidden" />
+          <div class="u-form-group u-form-name u-label-top">
+            <label for="name-5a14" class="u-label">Serie</label>
+            <input th:field="*{serie}" type="text" placeholder="Enter the Serie" id="name-5a14" name="serie" class="u-border-none u-grey-5 u-input u-input-rectangle u-radius-7 u-input-1">
+          </div>
+          <div class="u-form-group u-form-phone u-label-top">
+            <label for="email-5a14" class="u-label">Model</label>
+            <input th:field="*{model}" type="text" placeholder="Enter the Model" id="email-5a14" name="model" class="u-border-none u-grey-5 u-input u-input-rectangle u-radius-7 u-input-2" required="required">
+          </div>
+          <div class="u-form-group u-form-number u-form-number-layout-range-number u-label-top u-form-group-3">
+            <label for="number-73ae" class="u-label">Price</label>
+            <div class="u-input-row" data-value="0">
+              <input value="0" min="0" max="100" step="1" type="range" placeholder="" id="number-73ae" name="price" class="u-input u-input-rectangle u-radius-7 u-range u-text-black u-input-3">
+              <input th:field="*{price}" type="number" placeholder="" id="number-number-73ae" class="u-border-none u-grey-5 u-input u-input-rectangle u-radius-7 u-text-black u-input-3" min="0" max="100" step="1" value="0">
+            </div>
+          </div>
+          <div class="u-form-group u-form-select u-label-top u-form-group-4">
+            <label for="select-c4c6" class="u-label">Etat</label>
+            <div class="u-form-select-wrapper">
+              <select th:field="*{etat}" id="select-c4c6" name="etat" class="u-border-none u-grey-5 u-input u-input-rectangle u-radius-7 u-input-5">
+                <option th:each="etat : ${T(tekup.tp2.AppAdmin.Models.Etat).values()}"
+                        th:value="${etat}"
+                        th:text="${etat}">
+                </option>
+              </select>
+
+              <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+            </div>
+          </div>
+          <div class="u-align-right u-form-group u-form-submit u-label-top">
+            <input type="submit" value="Submit" class="u-form-control-hidden">
+            <button type="submit" id ="submitButton" class="u-active-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-palette-3-base u-radius-7 u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1">Submit</button>
+          </div>
+
+        </form>
+
+
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d3f9"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Exemple de texte. Cliquez pour sélectionner l'élément de texte.</p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>

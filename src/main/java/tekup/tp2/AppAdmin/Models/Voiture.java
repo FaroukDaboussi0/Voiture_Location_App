@@ -1,6 +1,7 @@
 package tekup.tp2.AppAdmin.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -12,7 +13,7 @@ import java.util.List;
 public class Voiture {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String serie;
     private String model;
@@ -100,6 +101,9 @@ public class Voiture {
     }
 
 
-    @OneToMany(mappedBy = "voiture")
+    @OneToMany(mappedBy = "voiture" )
+    @JsonIgnore
     private List<Location> locations;
-}
+   @ManyToOne
+   @JsonIgnore
+   private Models models ;}

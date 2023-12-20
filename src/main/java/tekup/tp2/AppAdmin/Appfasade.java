@@ -38,7 +38,8 @@ public interface Appfasade {
        //-other methods
        Voiture newVoitue();
        long countVoitures();
+       boolean isVoitureUnique(Voiture voiture);
 
 
-    boolean isVoitureUnique(Voiture voiture);
+
 }

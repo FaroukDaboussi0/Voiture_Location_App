@@ -1,4 +1,5 @@
 package tekup.tp2.AppAdmin.Models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 @Entity
@@ -52,6 +53,8 @@ public class Location {
 
     @ManyToOne
     private Client client;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Voiture voiture ;
+
 }

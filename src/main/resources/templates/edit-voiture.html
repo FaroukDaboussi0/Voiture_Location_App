@@ -1,10 +1,11 @@
 <form th:action="@{/update-voiture}" th:object="${voiture}" method="post">
-  <input type="hidden" th:field="*{id}" />
+  <input type="hidden" th:field="*{serie}" />
   <!-- Input fields for updating Voiture properties -->
-  <input type="text" th:field="*{Modele}" />
+  <input type="text" th:field="*{model}" />
+  <input type="text" th:field="*{price}" />
+  <input type="text" th:field="*{etat}" />
+
   <!-- Add more fields as needed -->
   <button type="submit">Update Voiture</button>
-  <div>
-    <a href="/">Home</a>
-  </div>
+
 </form>

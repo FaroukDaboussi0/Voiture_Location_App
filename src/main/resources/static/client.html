@@ -30,32 +30,11 @@
       <div class="u-expanded-width u-gradient u-opacity u-opacity-85 u-radius u-shape u-shape-round u-shape-1"></div>
       <div class="custom-expanded u-layout-horizontal u-list u-list-1">
         <div class="u-repeater u-repeater-1">
-          <div class="u-align-left u-border-3 u-border-grey-75 u-container-style u-list-item u-repeater-item">
+          <div class="u-align-left u-border-3 u-border-grey-75 u-container-style u-list-item u-repeater-item" th:each="client : ${clients5}">
             <div class="u-container-layout u-similar-container u-container-layout-1">
               <img class="u-image u-image-default u-preserve-proportions u-image-2" src="images/6009864.png" alt="" data-image-width="128" data-image-height="128">
-              <h4 class="u-text u-text-black u-text-1">Sample Headline</h4>
-              <h3 class="u-custom-font u-text u-text-body-color u-text-2" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">100</h3><span class="u-file-icon u-icon u-icon-1"><img src="images/639365.png" alt=""></span>
-            </div>
-          </div>
-          <div class="u-align-left u-border-3 u-border-grey-75 u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-2">
-              <img class="u-image u-image-default u-preserve-proportions u-image-3" src="images/6009864.png" alt="" data-image-width="128" data-image-height="128">
-              <h4 class="u-text u-text-black u-text-3">Sample Headline</h4>
-              <h3 class="u-custom-font u-text u-text-body-color u-text-4" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">100</h3><span class="u-file-icon u-icon u-icon-2"><img src="images/639365.png" alt=""></span>
-            </div>
-          </div>
-          <div class="u-align-left u-border-3 u-border-grey-75 u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-3">
-              <img class="u-image u-image-default u-preserve-proportions u-image-4" src="images/6009864.png" alt="" data-image-width="128" data-image-height="128">
-              <h4 class="u-text u-text-black u-text-5">Sample Headline</h4>
-              <h3 class="u-custom-font u-text u-text-body-color u-text-6" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">100</h3><span class="u-file-icon u-icon u-icon-3"><img src="images/639365.png" alt=""></span>
-            </div>
-          </div>
-          <div class="u-align-left u-border-3 u-border-grey-75 u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-4">
-              <img class="u-image u-image-default u-preserve-proportions u-image-5" src="images/6009864.png" alt="" data-image-width="128" data-image-height="128">
-              <h4 class="u-text u-text-black u-text-7">Sample Headline</h4>
-              <h3 class="u-custom-font u-text u-text-body-color u-text-8" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">100</h3><span class="u-file-icon u-icon u-icon-4"><img src="images/639365.png" alt=""></span>
+              <h4 class="u-text u-text-black u-text-1"th:text="${client.nomprenom}"></h4>
+              <h3 class="u-custom-font u-text u-text-body-color u-text-2" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000" th:text="${client.TotalRevenue}" ></h3><span class="u-file-icon u-icon u-icon-1"><img src="images/639365.png" alt=""></span>
             </div>
           </div>
         </div>
@@ -94,71 +73,68 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
 	c15.3-6.6,33.6-0.4,51.6,0.7c11.2,0.7,28.8-3.8,38.2,0.4s11.8,15.4,9.2,22.8c-1.9,5.4-5.5,11.6-12.8,16.5
 	c-9.3,10.1-4.7,22.9,3.7,33.4c7.8,9.7,17.7,11.7,18.3,23.5C160.4,110.8,157.6,122.2,151.7,132.5L151.7,132.5z"></path></svg>
             </div>
-            <h1 class="u-custom-font u-text u-text-grey-70 u-text-9" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">10</h1>
+            <h1 class="u-custom-font u-text u-text-grey-70 u-text-9" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000" th:text="clientCount"></h1>
           </div><span class="u-file-icon u-icon u-icon-5"><img src="images/6009864.png" alt=""></span>
           <div class="custom-expanded u-table u-table-responsive u-table-1">
-            <table class="u-table-entity">
-              <colgroup>
-                <col width="16.6%">
-                <col width="16.6%">
-                <col width="18.6%">
-                <col width="14.6%">
-                <col width="17%">
-                <col width="16.6%">
-              </colgroup>
-              <thead class="u-custom-color-2 u-custom-font u-font-oswald u-table-header u-table-header-1">
-                <tr style="height: 44px;">
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-1">column 1</th>
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">column 2</th>
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">column 3</th>
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">column 4</th>
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">column 5</th>
-                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">column 6</th>
+            <style>
+              /* Set a fixed height for the table container */
+              .scrollable-table-container {
+
+                max-height: 250px; /* Set the maximum height for the table */
+                display: block; /* Enable block-level display to enforce fixed height */
+                overflow-y: auto; /* Enable vertical scrolling */
+              }
+            </style>
+            </head>
+            <div class="custom-expanded u-table u-table-responsive u-table-1 scrollable-table-container">
+              <table class="u-table-entity" id="tableBody">
+                <colgroup>
+                  <col width="16.6%">
+                  <col width="16.6%">
+                  <col width="18.6%">
+                  <col width="14.6%">
+                  <col width="17%">
+                  <col width="18%">
+                </colgroup>
+                <thead class="u-custom-font u-font-oswald u-palette-1-base u-table-header u-table-valign-middle u-table-header-1">
+                <tr style="height: 44px; ">
+                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell u-table-cell-1">nomprenom</th>
+                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">numero</th>
+                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">sex</th>
+                  <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Modify</th>
                 </tr>
-              </thead>
-              <tbody class="u-table-body">
-                <tr style="height: 45px;">
-                  <td class="u-table-cell">Item #1</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell"></td>
+                </thead>
+                <tbody class="u-table-body"  th:each="client : ${clients}">
+                <tr style="height: 45px;" >
+                  <td class="u-table-cell"  th:text="${client.nomprenom}"></td>
+                  <td class="u-table-cell"th:text="${client.numero}"></td>
+                  <td class="u-table-cell"th:text="${client.sex}"></td>
+                  <td  > <a th:href="@{/edit-client/{id}(id=${client.id})}" class="custom-icon u-table-cell u-border-2 u-border-white u-icon u-icon-circle">
+                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 53.255 53.255" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-52b6"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 53.255 53.255" x="0px" y="0px" id="svg-52b6" style="enable-background:new 0 0 53.255 53.255;"><path style="fill:#D75A4A;" d="M39.598,2.343c3.124-3.124,8.19-3.124,11.314,0s3.124,8.19,0,11.314L39.598,2.343z"></path><polygon style="fill:#ED8A19;" points="42.426,17.899 16.512,43.814 15.982,48.587 44.548,20.02 44.548,20.02 "></polygon><polygon style="fill:#ED8A19;" points="10.325,42.93 15.098,42.4 41.012,16.485 36.77,12.243 10.855,38.157 "></polygon><polygon style="fill:#ED8A19;" points="35.356,10.829 33.234,8.707 33.234,8.707 4.668,37.273 9.441,36.743 "></polygon><polygon style="fill:#C7CAC7;" points="48.79,15.778 48.79,15.778 50.912,13.657 39.598,2.343 37.476,4.465 37.477,4.465 "></polygon><polygon style="fill:#C7CAC7;" points="36.062,5.879 36.062,5.879 34.648,7.293 34.648,7.293 45.962,18.606 45.962,18.606
+	47.376,17.192 47.376,17.192 "></polygon><path style="fill:#FBCE9D;" d="M14.424,44.488l-5.122,0.569c-0.036,0.004-0.073,0.006-0.109,0.006c0,0-0.001,0-0.001,0H9.192H9.192
+	c-0.001,0-0.001,0-0.001,0c-0.036,0-0.073-0.002-0.109-0.006c-0.039-0.004-0.071-0.026-0.108-0.035
+	c-0.072-0.017-0.141-0.035-0.207-0.067c-0.05-0.024-0.093-0.053-0.138-0.084c-0.057-0.04-0.109-0.083-0.157-0.134
+	c-0.038-0.04-0.069-0.081-0.1-0.127c-0.038-0.057-0.069-0.116-0.095-0.181c-0.022-0.054-0.038-0.107-0.05-0.165
+	c-0.007-0.032-0.024-0.059-0.028-0.092c-0.004-0.038,0.01-0.073,0.01-0.11c0-0.038-0.014-0.072-0.01-0.11l0.569-5.122l-5.122,0.569
+	c-0.037,0.004-0.075,0.006-0.111,0.006c-0.079,0-0.152-0.024-0.227-0.042L0.442,51.399l2.106-2.106c0.391-0.391,1.023-0.391,1.414,0
+	s0.391,1.023,0,1.414l-2.106,2.106l12.03-2.864c-0.026-0.109-0.043-0.222-0.03-0.339L14.424,44.488z"></path><path style="fill:#38454F;" d="M3.962,49.293c-0.391-0.391-1.023-0.391-1.414,0l-2.106,2.106L0,53.255l1.856-0.442l2.106-2.106
+	C4.352,50.316,4.352,49.684,3.962,49.293z"></path><polygon style="fill:#F2ECBF;" points="48.79,15.778 37.477,4.465 37.476,4.465 36.062,5.879 36.062,5.879 47.376,17.192
+	47.376,17.192 48.79,15.778 "></polygon><path style="fill:#EBBA16;" d="M41.012,16.485L15.098,42.4l-4.773,0.53l0.53-4.773L36.77,12.243l-1.414-1.414L9.441,36.743
+	l-4.773,0.53l-1.133,1.133l-0.228,0.957c0.075,0.018,0.147,0.042,0.227,0.042c0.036,0,0.074-0.002,0.111-0.006l5.122-0.569
+	l-0.569,5.122c-0.004,0.038,0.01,0.073,0.01,0.11c0,0.038-0.014,0.072-0.01,0.11c0.004,0.033,0.021,0.06,0.028,0.092
+	c0.012,0.057,0.029,0.112,0.05,0.165c0.026,0.064,0.057,0.124,0.095,0.181c0.03,0.045,0.063,0.088,0.1,0.127
+	c0.047,0.05,0.1,0.094,0.157,0.134c0.044,0.031,0.089,0.061,0.138,0.084c0.065,0.031,0.135,0.05,0.207,0.067
+	c0.038,0.009,0.069,0.03,0.108,0.035c0.036,0.004,0.072,0.006,0.109,0.006h0.001h0h0.001h0.001c0,0,0.001,0,0.001,0h0
+	c0.035,0,0.072-0.002,0.109-0.006l5.122-0.569l-0.569,5.122c-0.013,0.118,0.004,0.23,0.03,0.339l0.963-0.229l1.133-1.132l0.53-4.773
+	l25.914-25.915L41.012,16.485z"></path><polygon style="fill:#F2ECBF;" points="45.962,18.606 34.648,7.293 34.648,7.293 33.234,8.707 33.234,8.707 35.356,10.829
+	36.77,12.243 41.012,16.485 42.426,17.899 44.548,20.02 44.548,20.02 45.962,18.606 "></polygon></svg>
+                  </td>
                 </tr>
-                <tr style="height: 44px;">
-                  <td class="u-table-cell">Item #2</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                </tr>
-                <tr style="height: 44px;">
-                  <td class="u-table-cell">Item #3</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                </tr>
-                <tr style="height: 44px;">
-                  <td class="u-table-cell">Item #4</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                  <td class="u-table-cell">Description</td>
-                </tr>
-                <tr style="height: 45px;">
-                  <td class="u-table-cell"></td>
-                  <td class="u-table-cell"></td>
-                  <td class="u-table-cell"></td>
-                  <td class="u-table-cell"></td>
-                  <td class="u-table-cell"></td>
-                  <td class="u-table-cell"></td>
-                </tr>
-              </tbody>
-            </table>
+
+
+
+                </tbody>
+              </table>
           </div>
           <a href="Page-1.html" class="u-border-none u-btn u-btn-round u-button-style u-gradient u-radius u-text-body-alt-color u-btn-1" data-animation-name="flipIn" data-animation-duration="2750" data-animation-direction="X" data-animation-delay="1000">ACTIVE</a>
           <form action="#" method="get" class="u-border-1 u-border-grey-30 u-search u-search-left u-white u-search-1">

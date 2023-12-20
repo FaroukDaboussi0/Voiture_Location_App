@@ -7,6 +7,7 @@ import java.util.List;
 public interface ClientService {
     List<Client> getAllclients();
     Client getclientById(Long id);
+
     void saveclient(Client client);
     void deleteclient(Long id);
     long countClients();

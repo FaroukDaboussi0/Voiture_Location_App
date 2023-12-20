@@ -30,6 +30,8 @@ public class ClientServiceImp implements ClientService {
         return clientRepository.findById(id).orElse(null);
     }
 
+
+
     public void saveclient(Client client) {
         clientRepository.save(client);
     }
@@ -54,30 +56,54 @@ public class ClientServiceImp implements ClientService {
     }
 
     public List<Client> getTop5ClientsByRevenue() {
-        List<Client> allClients = clientRepository.findAll(); // Fetch all Client objects
+        List<Client> top5Clients =  getTopClientsByRevenue();
 
-        // Calculate revenue for each Client
-        allClients.forEach(this::calculateTotalRevenueForClient);
 
-        // Sort Client objects based on revenue in descending order
-        allClients.sort(Comparator.comparingDouble(this::calculateTotalRevenueForClient).reversed());
 
         // Return top 5 Client objects
-        return allClients.stream().limit(5).collect(Collectors.toList());
+        return top5Clients.subList(0, Math.min(5, top5Clients.size()));
     }
 
     public List<Client> getTopClientsByRevenue() {
-        List<Client> allClients = clientRepository.findAll(); // Fetch all Client objects
+        List<Client> allClients = clientRepository.findAll();
 
-        // Calculate revenue for each Client
-        allClients.forEach(this::calculateTotalRevenueForClient);
+        // Filter clients with rentals
+        List<Client> clientsWithRentals = allClients.stream()
+                .filter(client -> !client.getLocations().isEmpty())
+                .collect(Collectors.toList());
 
-        // Sort Client objects based on revenue in descending order
-        allClients.sort(Comparator.comparingDouble(this::calculateTotalRevenueForClient).reversed());
+        // Calculate revenue for each client
+        clientsWithRentals.forEach(client -> {
+            List<Location> clientLocations = client.getLocations();
+
+            // Check if the client has any active rentals
+            boolean isActive = clientLocations.stream()
+                    .anyMatch(location -> location.getDate_retour().isAfter(LocalDateTime.now()));
+
+            // Set the client's active status
+            client.setActive(isActive);
+
+            // Calculate total revenue for the client based on their rentals
+            double totalRevenue = clientLocations.stream()
+                    .mapToDouble(location -> {
+                        int totalDaysRented = (int) ChronoUnit.DAYS.between(
+                                location.getDate_debut().toLocalDate(),
+                                location.getDate_retour().toLocalDate());
+                        return totalDaysRented * location.getVoiture().getPrice();
+                    })
+                    .sum();
+
+            // Set the total revenue for the client
+            client.setTotalRevenue(totalRevenue);
+        });
 
 
-        return new ArrayList<>(allClients);
+        // Sort clients based on total revenue in descending order
+        clientsWithRentals.sort(Comparator.comparingDouble(Client::getTotalRevenue).reversed());
+
+        return clientsWithRentals;
     }
+
 
     public List<Client> getClientsCurrentlyRentingCars() {
         List<Client> allClients = clientRepository.findAll(); // Fetch all Client objects

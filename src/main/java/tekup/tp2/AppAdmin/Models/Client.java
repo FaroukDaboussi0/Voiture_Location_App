@@ -1,5 +1,6 @@
 package tekup.tp2.AppAdmin.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,6 +14,10 @@ public class Client {
     private String numero;
     private Sex sex;
 
+
+
+    private double TotalRevenue = 0 ;
+    private boolean active;
     public Client() {
     }
 
@@ -50,7 +55,21 @@ public class Client {
 
 
 
+    public double getTotalRevenue() {
+        return TotalRevenue;
+    }
 
+    public void setTotalRevenue(double totalRevenue) {
+        TotalRevenue = totalRevenue;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
 
     public List<Location> getLocations() {
@@ -60,12 +79,11 @@ public class Client {
     public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
-    public enum Sex {
-        MALE,
-        FEMALE
-    }
 
 
-    @OneToMany(mappedBy = "client")
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Location> locations;
+
 }

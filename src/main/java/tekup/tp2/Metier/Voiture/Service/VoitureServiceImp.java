@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import tekup.tp2.AppAdmin.Models.Voiture;
 import tekup.tp2.Metier.Repository.VoitureRepository;
 
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -40,15 +41,7 @@ public class VoitureServiceImp implements VoitureService {
         return voitureRepository.count();
 
     }
-    public double calculateTotalRevenueForVoiture(Voiture voiture) {
-        int totalDaysRented = voiture.getLocations().stream()
-                .mapToInt(location -> (int) ChronoUnit.DAYS.between(
-                        location.getDate_debut().toLocalDate(),
-                        location.getDate_retour().toLocalDate()))
-                .sum();
 
-        return totalDaysRented * voiture.getPrice();
-    }
 
     public List<Voiture> getTop5VoituresByRevenue() {
 
@@ -67,24 +60,30 @@ public class VoitureServiceImp implements VoitureService {
                     .collect(Collectors.toList());
 
             // Calculate revenue for each Voiture
-            carsWithRentals.forEach(voiture -> {
-                // Check if the car has any rentals
+        carsWithRentals.forEach(voiture -> {
+            // Check if the car has any active rentals
+            boolean isAvailable = voiture.getLocations().stream()
+                    .noneMatch(location -> location.getDate_retour().isAfter(LocalDateTime.now()));
 
-                // Calculate the total number of days rented
-                int totalDaysRented = voiture.getLocations().stream()
-                        .mapToInt(location -> (int) ChronoUnit.DAYS.between(
-                                location.getDate_debut().toLocalDate(),
-                                location.getDate_retour().toLocalDate()))
-                        .sum();
+            // Set the car's availability based on active rentals
+            voiture.setDisponibility(isAvailable);
 
-                // Calculate the total revenue
-                double totalRevenue = totalDaysRented * voiture.getPrice();
+            // Calculate the total number of days rented
+            int totalDaysRented = voiture.getLocations().stream()
+                    .mapToInt(location -> (int) ChronoUnit.DAYS.between(
+                            location.getDate_debut().toLocalDate(),
+                            location.getDate_retour().toLocalDate()))
+                    .sum();
 
-                // Set the total revenue for the car
-                voiture.setTotalRevenue(totalRevenue);
-            });
+            // Calculate the total revenue
+            double totalRevenue = totalDaysRented * voiture.getPrice();
 
-                // Sort Voiture objects based on revenue in descending order
+            // Set the total revenue for the car
+            voiture.setTotalRevenue(totalRevenue);
+        });
+
+
+        // Sort Voiture objects based on revenue in descending order
                 carsWithRentals.sort(Comparator.comparingDouble(Voiture::getTotalRevenue).reversed());
 
 
